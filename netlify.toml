@@ -1,4 +1,5 @@
 [build]
+  command = "node scripts/enrich-social.js"
   publish = "."
 
 [build.environment]
@@ -16,3 +17,9 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=(self)"
+
+[[headers]]
+  for = "/assets/el-cameleon-social.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+    Content-Type = "image/jpeg"
