@@ -9,7 +9,7 @@ export default async (req: Request) => {
     headers: {
       "Content-Type": "application/json",
       "X-Goog-Api-Key": key,
-      "X-Goog-FieldMask": "places.id,places.displayName,places.formattedAddress,places.location,places.rating,places.userRatingCount,places.photos,places.googleMapsUri,places.googleMapsLinks"
+      "X-Goog-FieldMask": "places.id,places.displayName,places.formattedAddress,places.location,places.rating,places.userRatingCount,places.photos,places.googleMapsUri,places.googleMapsLinks,places.reviews"
     },
     body: JSON.stringify({ textQuery: query, maxResultCount: 1, locationBias: { circle: { center: { latitude: 29.7604, longitude: -95.3698 }, radius: 80000 } } })
   });
@@ -28,6 +28,13 @@ export default async (req: Request) => {
       photoUri = m.photoUri || null;
     }
   }
+  const reviews = (p.reviews || []).slice(0, 5).map((r: any) => ({
+    author: r.authorAttribution?.displayName || "Google user",
+    authorUri: r.authorAttribution?.uri || null,
+    rating: r.rating || null,
+    relativeTime: r.relativePublishTimeDescription || null,
+    text: r.text?.text || r.originalText?.text || ""
+  }));
   return Response.json({ configured: true, place: {
     id: p.id,
     displayName: p.displayName?.text,
@@ -41,7 +48,8 @@ export default async (req: Request) => {
     reviewsUri: p.googleMapsLinks?.reviewsUri,
     photosUri: p.googleMapsLinks?.photosUri,
     photoUri,
-    photoAttribution
+    photoAttribution,
+    reviews
   }});
 };
 export const config = { path: "/api/google-place" };
