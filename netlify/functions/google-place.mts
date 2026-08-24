@@ -9,25 +9,29 @@ export default async (req: Request) => {
     headers: {
       "Content-Type": "application/json",
       "X-Goog-Api-Key": key,
-      "X-Goog-FieldMask": "places.id,places.displayName,places.formattedAddress,places.location,places.rating,places.userRatingCount,places.photos,places.googleMapsUri,places.googleMapsLinks,places.reviews"
+      "X-Goog-FieldMask": "places.id,places.displayName,places.formattedAddress,places.location,places.rating,places.userRatingCount,places.photos,places.googleMapsUri,places.googleMapsLinks,places.reviews,places.websiteUri,places.priceLevel"
     },
-    body: JSON.stringify({ textQuery: query, maxResultCount: 1, locationBias: { circle: { center: { latitude: 29.7604, longitude: -95.3698 }, radius: 80000 } } })
+    body: JSON.stringify({ textQuery: query, maxResultCount: 1, locationBias: { circle: { center: { latitude: 29.7604, longitude: -95.3698 }, radius: 100000 } } })
   });
   if (!search.ok) return Response.json({ error: "Google Places request failed", status: search.status }, { status: 502 });
   const data = await search.json();
   const p = data.places?.[0];
   if (!p) return Response.json({ configured: true, place: null });
-  let photoUri = null;
-  const photoAttribution = p.photos?.[0]?.authorAttributions || [];
-  if (p.photos?.[0]?.name) {
-    const media = await fetch(`https://places.googleapis.com/v1/${p.photos[0].name}/media?maxWidthPx=900&skipHttpRedirect=true`, {
-      headers: { "X-Goog-Api-Key": key }
-    });
-    if (media.ok) {
-      const m = await media.json();
-      photoUri = m.photoUri || null;
-    }
+
+  const photos = [];
+  for (const ph of (p.photos || []).slice(0, 10)) {
+    if (!ph?.name) continue;
+    try {
+      const media = await fetch(`https://places.googleapis.com/v1/${ph.name}/media?maxWidthPx=1200&skipHttpRedirect=true`, {
+        headers: { "X-Goog-Api-Key": key }
+      });
+      if (media.ok) {
+        const m = await media.json();
+        if (m.photoUri) photos.push({ uri: m.photoUri, attribution: ph.authorAttributions || [] });
+      }
+    } catch {}
   }
+
   const reviews = (p.reviews || []).slice(0, 5).map((r: any) => ({
     author: r.authorAttribution?.displayName || "Google user",
     authorUri: r.authorAttribution?.uri || null,
@@ -35,6 +39,7 @@ export default async (req: Request) => {
     relativeTime: r.relativePublishTimeDescription || null,
     text: r.text?.text || r.originalText?.text || ""
   }));
+
   return Response.json({ configured: true, place: {
     id: p.id,
     displayName: p.displayName?.text,
@@ -47,8 +52,11 @@ export default async (req: Request) => {
     writeAReviewUri: p.googleMapsLinks?.writeAReviewUri,
     reviewsUri: p.googleMapsLinks?.reviewsUri,
     photosUri: p.googleMapsLinks?.photosUri,
-    photoUri,
-    photoAttribution,
+    websiteUri: p.websiteUri,
+    priceLevel: p.priceLevel,
+    photos,
+    photoUri: photos[0]?.uri || null,
+    photoAttribution: photos[0]?.attribution || [],
     reviews
   }});
 };
