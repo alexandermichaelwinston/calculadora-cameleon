@@ -11,6 +11,12 @@
   status = 200
   force = true
 
+[[redirects]]
+  from = "/lacrema-deals"
+  to = "/lacrema-deals.html"
+  status = 200
+  force = true
+
 [[headers]]
   for = "/*"
   [headers.values]
