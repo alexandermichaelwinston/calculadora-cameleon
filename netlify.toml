@@ -29,3 +29,9 @@
   [headers.values]
     Cache-Control = "public, max-age=3600"
     Content-Type = "image/jpeg"
+
+[[headers]]
+  for = "/assets/la-crema-taco-social-final.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+    Content-Type = "image/jpeg"
