@@ -6,6 +6,12 @@
   NODE_VERSION = "20"
 
 [[redirects]]
+  from = "/lacrema.html"
+  to = "/lacrema-v2.html"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/lacrema-deals"
   to = "/lacrema-deals.html"
   status = 200
