@@ -38,6 +38,7 @@ laCrema = laCrema.replace('</head>', `
 <meta name="twitter:description" content="Houston's hottest trending foodie spots + date night guide.">
 <meta name="twitter:image" content="${laCremaImage}">
 ${laCrema.includes('/assets/lacrema-enhancements.css') ? '' : '<link rel="stylesheet" href="/assets/lacrema-enhancements.css">'}
+${laCrema.includes('/assets/lacrema-business.css') ? '' : '<link rel="stylesheet" href="/assets/lacrema-business.css">'}
 </head>`);
 if (!laCrema.includes('/assets/lacrema-enhancements.js')) {
   laCrema = laCrema.replace('</body>', '<script src="/assets/lacrema-enhancements.js" defer><\/script></body>');
