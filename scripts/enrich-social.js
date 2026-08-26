@@ -27,7 +27,7 @@ laCrema = laCrema.replace(/<meta\s+name=["']description["'][^>]*>/i, '<meta name
 laCrema = laCrema.replace(/<meta\s+(?:property=["']og:[^"']+["']|name=["']twitter:[^"']+["'])[^>]*>\s*/gi, '');
 laCrema = laCrema.replace('</head>', `
 <meta property="og:title" content="La Crema — A Houston Original">
-<meta property="og:description" content="Houston's hottest trending foodie spots + date night guide.">
+<meta property="og:description" content="Find the best taco in town—or nearest you—ASAP. GO! →">
 <meta property="og:url" content="https://calculadora-network.netlify.app/lacrema.html">
 <meta property="og:image" content="${laCremaImage}">
 <meta property="og:image:width" content="1200">
@@ -35,7 +35,7 @@ laCrema = laCrema.replace('</head>', `
 <meta property="og:image:alt" content="La Crema Houston taco guide artwork">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="La Crema — A Houston Original">
-<meta name="twitter:description" content="Houston's hottest trending foodie spots + date night guide.">
+<meta name="twitter:description" content="Find the best taco in town—or nearest you—ASAP. GO! →">
 <meta name="twitter:image" content="${laCremaImage}">
 ${laCrema.includes('/assets/lacrema-enhancements.css') ? '' : '<link rel="stylesheet" href="/assets/lacrema-enhancements.css">'}
 ${laCrema.includes('/assets/lacrema-business.css') ? '' : '<link rel="stylesheet" href="/assets/lacrema-business.css">'}
