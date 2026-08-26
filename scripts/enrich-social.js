@@ -1,5 +1,5 @@
-const fs = require('fs');
-const path = require('path');
+import fs from 'node:fs';
+import path from 'node:path';
 
 const file = path.join(process.cwd(), 'index.html');
 let html = fs.readFileSync(file, 'utf8');
