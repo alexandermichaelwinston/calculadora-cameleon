@@ -18,4 +18,29 @@ const navFix = `<script>(function(){document.querySelectorAll('a').forEach(funct
 html = html.replace('</body>', navFix + '</body>');
 
 fs.writeFileSync(file, html);
+
+// Extend La Crema without changing its established light-theme HTML design.
+const laCremaFile = path.join(process.cwd(), 'lacrema-v2.html');
+let laCrema = fs.readFileSync(laCremaFile, 'utf8');
+const laCremaImage = 'https://calculadora-network.netlify.app/assets/la-crema-taco-social.jpg';
+laCrema = laCrema.replace(/<meta\s+name=["']description["'][^>]*>/i, '<meta name="description" content="La Crema — Houston\'s hottest trending foodie spots + date night guide.">');
+laCrema = laCrema.replace(/<meta\s+(?:property=["']og:[^"']+["']|name=["']twitter:[^"']+["'])[^>]*>\s*/gi, '');
+laCrema = laCrema.replace('</head>', `
+<meta property="og:title" content="La Crema — A Houston Original">
+<meta property="og:description" content="Houston's hottest trending foodie spots + date night guide.">
+<meta property="og:url" content="https://calculadora-network.netlify.app/lacrema.html">
+<meta property="og:image" content="${laCremaImage}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="La Crema Houston taco guide artwork">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="La Crema — A Houston Original">
+<meta name="twitter:description" content="Houston's hottest trending foodie spots + date night guide.">
+<meta name="twitter:image" content="${laCremaImage}">
+${laCrema.includes('/assets/lacrema-enhancements.css') ? '' : '<link rel="stylesheet" href="/assets/lacrema-enhancements.css">'}
+</head>`);
+if (!laCrema.includes('/assets/lacrema-enhancements.js')) {
+  laCrema = laCrema.replace('</body>', '<script src="/assets/lacrema-enhancements.js" defer><\/script></body>');
+}
+fs.writeFileSync(laCremaFile, laCrema);
 console.log('Calculadora social artwork and El Camaleón navigation enriched.');
