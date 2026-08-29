@@ -52,10 +52,15 @@ export default async (req: Request) => {
   const city = clean(body.city, 60);
   const grade = clean(body.grade, 20).toLowerCase();
   const note = clean(body.note, 160);
+  const payment = clean(body.payment, 20).toLowerCase() || "credit";
+  const stationId = clean(body.stationId, 120);
+  const latitude = Number(body.latitude);
+  const longitude = Number(body.longitude);
   const price = Number(body.price);
 
   const allowedGrades = new Set(["regular", "midgrade", "premium", "diesel"]);
-  if (!station || !city || !allowedGrades.has(grade) || !Number.isFinite(price) || price < 0.5 || price > 15) {
+  const allowedPayments = new Set(["cash", "credit", "member"]);
+  if (!station || !city || !allowedGrades.has(grade) || !allowedPayments.has(payment) || !Number.isFinite(price) || price < 0.5 || price > 15) {
     return json({ error: "Please provide a station, city, fuel grade, and a realistic price." }, 400);
   }
 
@@ -68,6 +73,10 @@ export default async (req: Request) => {
     grade,
     price: Math.round(price * 1000) / 1000,
     note,
+    payment,
+    stationId,
+    latitude: Number.isFinite(latitude) && latitude >= -90 && latitude <= 90 ? latitude : null,
+    longitude: Number.isFinite(longitude) && longitude >= -180 && longitude <= 180 ? longitude : null,
     reportedAt: now.toISOString(),
     source: "community",
     verified: false,
@@ -78,3 +87,4 @@ export default async (req: Request) => {
 };
 
 export const config = { path: "/api/amigogas/reports" };
+
