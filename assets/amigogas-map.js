@@ -1,5 +1,8 @@
 (()=>{
   const live=document.getElementById('live'); if(!live)return;
+  const benchmarkPrice=document.querySelector('.official .bigprice'),benchmarkCopy=document.querySelector('.official .muted');
+  if(benchmarkPrice)benchmarkPrice.textContent='$3.638/gal';
+  if(benchmarkCopy)benchmarkCopy.textContent='Gulf Coast regular gasoline weekly average for Aug. 24, 2026. Official EIA regional benchmark—not a station quote. Updated weekly; station prices below come only from authorized or community sources.';
   const section=document.createElement('section');section.className='agMapSection';section.id='gas-map';
   section.innerHTML=`<div class="wrap"><div class="agMapHead"><div><h2>Find the best gas near you.</h2><p>AmigoGas now auto-locates nearby stations, ranks the five lowest known community prices by proximity, and puts price badges directly on the map. Move the map or change the radius to refresh.</p></div><div class="agMapTools"><button class="btn flame" id="agNearMe" type="button">📍 Use my location</button><a class="btn" target="_blank" rel="noopener nofollow" href="https://www.gasbuddy.com/home?search=Houston%2C%20TX">Compare on GasBuddy →</a></div></div><div class="agFinder"><div class="agControlCard"><div class="agControlRow"><div class="agField"><label>Search area</label><input id="agSearchLabel" value="Near my current location" readonly></div><div class="agField"><label>Fuel</label><select id="agGrade"><option value="regular">Regular</option><option value="midgrade">Midgrade</option><option value="premium">Premium</option><option value="diesel">Diesel</option></select></div><div class="agField"><label>Radius</label><select id="agRadius"><option value="5">5 miles</option><option value="10" selected>10 miles</option><option value="20">20 miles</option><option value="30">30 miles</option></select></div><button class="btn flame agLocate" id="agRefresh" type="button">Refresh prices</button></div><div class="agStats"><div class="agStat"><small>Lowest known</small><b id="agLow">—</b></div><div class="agStat"><small>Average known</small><b id="agAvg">—</b></div><div class="agStat"><small>Stations found</small><b id="agCount">—</b></div></div></div><div class="agBestCard"><div class="agBestHead"><b>🔥 Best 5 nearby</b><span id="agBestSub">Waiting for location…</span></div><div class="agBestList" id="agBestList"><div class="agBestItem"><div class="agNoPrice">Locating nearby stations…</div></div></div></div></div><div class="agMapShell"><div class="agMapStatus"><b>AmigoGas live station map</b><span id="agMapStatus">Loading nearby stations…</span></div><div id="amigoGasMap"></div></div><div class="notice"><strong>Price source:</strong> Prices shown inside AmigoGas are community-reported and may be stale or differ by payment method. Yelp is used only for nearby station discovery. GasBuddy and Google Maps remain independent external services. Always confirm the pump price before buying.</div></div>`;
   live.before(section);
@@ -14,6 +17,20 @@
   const esc=s=>String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
   const miles=(a,b)=>{const R=3958.8,rad=x=>x*Math.PI/180,dLat=rad(b.lat-a.lat),dLon=rad(b.lng-a.lng),la1=rad(a.lat),la2=rad(b.lat);const h=Math.sin(dLat/2)**2+Math.cos(la1)*Math.cos(la2)*Math.sin(dLon/2)**2;return 2*R*Math.asin(Math.sqrt(h))};
   const age=iso=>{const m=Math.max(0,Math.floor((Date.now()-new Date(iso).getTime())/60000));if(m<60)return `${m}m ago`;const h=Math.floor(m/60);return h<24?`${h}h ago`:`${Math.floor(h/24)}d ago`};
+  const MAX_PRICE_AGE_MS=72*60*60*1000;
+  const reportForm=document.getElementById('priceForm');
+  if(reportForm&&!reportForm.elements.payment){
+    const noteField=reportForm.querySelector('input[name="note"]')?.closest('.field');
+    const paymentField=document.createElement('div');paymentField.className='field';paymentField.innerHTML='<label>Payment type *</label><select name="payment" required><option value="credit">Credit / posted</option><option value="cash">Cash</option><option value="member">Member / loyalty</option></select>';
+    noteField?.before(paymentField);
+    ['stationId','latitude','longitude'].forEach(name=>{const input=document.createElement('input');input.type='hidden';input.name=name;reportForm.appendChild(input)});
+  }
+  window.prefillAmigoGasReport=station=>{
+    if(!reportForm)return;
+    const set=(name,value)=>{const field=reportForm.elements.namedItem(name);if(field)field.value=value??''};
+    set('station',station.name);set('address',station.address);set('city',station.city);set('stationId',station.id);set('latitude',station.latitude);set('longitude',station.longitude);
+    document.getElementById('report')?.scrollIntoView({behavior:'smooth',block:'start'});reportForm.elements.namedItem('price')?.focus();
+  };
 
   loadScript().then(()=>{
     const map=L.map('amigoGasMap').setView([29.7604,-95.3698],11);
@@ -24,25 +41,32 @@
     async function loadReports(){try{const r=await fetch('/api/amigogas/reports',{cache:'no-store'}),d=await r.json();reports=Array.isArray(d.reports)?d.reports:[]}catch{reports=[]}}
     function bestReportFor(b){
       const bn=norm(b.name),ba=norm(b.address),grade=gradeEl.value;
-      const candidates=reports.filter(r=>r.grade===grade&&(norm(r.station)===bn||bn.includes(norm(r.station))||norm(r.station).includes(bn)||(ba&&norm(r.address)&&ba.includes(norm(r.address)))));
+      const candidates=reports.filter(r=>{
+        if(r.grade!==grade||Date.now()-new Date(r.reportedAt).getTime()>MAX_PRICE_AGE_MS)return false;
+        if(r.stationId&&b.id)return r.stationId===b.id;
+        if(Number.isFinite(r.latitude)&&Number.isFinite(r.longitude))return miles({lat:r.latitude,lng:r.longitude},{lat:b.latitude,lng:b.longitude})<0.2;
+        return norm(r.station)===bn||(ba&&norm(r.address)&&ba.includes(norm(r.address)));
+      });
       return candidates.sort((a,b)=>new Date(b.reportedAt)-new Date(a.reportedAt))[0]||null;
     }
     function renderBest(center){
       const radius=Number(radiusEl.value),known=[];
       stations.forEach(b=>{if(!b.latitude||!b.longitude)return;const distance=miles(center,{lat:b.latitude,lng:b.longitude});if(distance>radius)return;const report=bestReportFor(b);known.push({...b,distance,report})});
       known.sort((a,b)=>{const ap=a.report?Number(a.report.price):999,bp=b.report?Number(b.report.price):999;if(ap!==bp)return ap-bp;return a.distance-b.distance});
-      const top=known.slice(0,5),priced=known.filter(x=>x.report);
+      const priced=known.filter(x=>x.report),top=priced.slice(0,5),unpriced=known.filter(x=>!x.report).slice(0,Math.max(0,5-top.length));
       document.getElementById('agCount').textContent=known.length||'0';
       document.getElementById('agLow').textContent=priced.length?`$${Math.min(...priced.map(x=>Number(x.report.price))).toFixed(2)}`:'—';
       document.getElementById('agAvg').textContent=priced.length?`$${(priced.reduce((s,x)=>s+Number(x.report.price),0)/priced.length).toFixed(2)}`:'—';
-      document.getElementById('agBestSub').textContent=priced.length?`${priced.length} known ${gradeEl.value} prices`:'No matched prices yet';
-      if(!top.length){bestList.innerHTML='<div class="agBestItem"><div class="agNoPrice">No stations found inside this radius.</div></div>';return}
-      bestList.innerHTML=top.map((x,i)=>{const q=encodeURIComponent(`${x.name} ${x.address||x.city||''}`);return `<a class="agBestItem" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${q}"><div class="agRank">${i+1}</div><div><div class="agStationName">${esc(x.name)}</div><div class="agStationMeta">${x.distance.toFixed(1)} mi · ${esc(x.address||x.city||'nearby')}</div></div><div class="agPrice">${x.report?'$'+Number(x.report.price).toFixed(2):'—'}<small>${x.report?age(x.report.reportedAt):'tap to check'}</small></div></a>`}).join('');
+      document.getElementById('agBestSub').textContent=priced.length?`${priced.length} fresh ${gradeEl.value} prices · 72h max`:'No fresh matched prices yet';
+      if(!known.length){bestList.innerHTML='<div class="agBestItem"><div class="agNoPrice">No stations found inside this radius.</div></div>';return}
+      const average=priced.length?priced.reduce((s,x)=>s+Number(x.report.price),0)/priced.length:null;
+      bestList.innerHTML=[...top,...unpriced].map((x,i)=>{const q=encodeURIComponent(`${x.name} ${x.address||x.city||''}`),save=x.report&&average?Math.max(0,(average-Number(x.report.price))*12):0;return `<a class="agBestItem" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${q}"><div class="agRank">${i+1}</div><div><div class="agStationName">${esc(x.name)}</div><div class="agStationMeta">${x.distance.toFixed(1)} mi · ${esc(x.report?.payment||'price needed')}${save?` · save ~$${save.toFixed(2)}/12 gal`:''}</div></div><div class="agPrice">${x.report?'$'+Number(x.report.price).toFixed(2):'—'}<small>${x.report?age(x.report.reportedAt):'report price'}</small></div></a>`}).join('');
     }
     function draw(center){
       layer.clearLayers();
       stations.forEach(b=>{if(!b.latitude||!b.longitude)return;const report=bestReportFor(b),q=encodeURIComponent(`${b.name} ${b.address||b.city||'Houston TX'}`),photo=b.imageUrl||'https://images.unsplash.com/photo-1545262810-77515befe149?auto=format&fit=crop&w=600&q=78';
-        const card=`<div class="agGasPreview"><img src="${photo}" alt="${esc(b.name)}"><b>${esc(b.name)}</b><br>${report?`<span class="agPriceBadge">$${Number(report.price).toFixed(2)} ${esc(report.grade)}</span><br>`:''}<strong>${b.rating||'—'}★ Yelp</strong> · ${b.reviewCount||0} reviews<br>${esc(b.address||'')}<div class="agMapLinks"><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${q}">Directions →</a><a class="gasbuddy" target="_blank" rel="noopener nofollow" href="https://www.gasbuddy.com/home?search=${q}">Compare price →</a></div><div class="agSourceLine">${report?`AmigoGas community report · ${age(report.reportedAt)}`:'No matched AmigoGas price report yet'}</div></div>`;
+        const stationPayload=esc(JSON.stringify({id:b.id,name:b.name,address:b.address,city:b.city,latitude:b.latitude,longitude:b.longitude}));
+        const card=`<div class="agGasPreview"><img src="${photo}" alt="${esc(b.name)}"><b>${esc(b.name)}</b><br>${report?`<span class="agPriceBadge">$${Number(report.price).toFixed(2)} ${esc(report.grade)} · ${esc(report.payment||'posted')}</span><br>`:''}<strong>${b.rating||'—'}★ Yelp</strong> · ${b.reviewCount||0} reviews<br>${esc(b.address||'')}<div class="agMapLinks"><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${q}">Directions →</a><button type="button" class="agReportStation" data-station="${stationPayload}">Report price</button></div><div class="agSourceLine">${report?`AmigoGas community report · ${age(report.reportedAt)}`:'No fresh matched AmigoGas price report'}</div></div>`;
         if(report){L.marker([b.latitude,b.longitude],{icon:L.divIcon({className:'agMarkerPrice',html:`<div>$${Number(report.price).toFixed(2)}</div>`,iconSize:[58,28],iconAnchor:[29,14]})}).addTo(layer).bindTooltip(card,{direction:'top',sticky:true,opacity:1}).bindPopup(card)}
         else L.circleMarker([b.latitude,b.longitude],{radius:7,color:'#fff',weight:2,fillColor:'#ff6b35',fillOpacity:.95}).addTo(layer).bindTooltip(card,{direction:'top',sticky:true,opacity:1}).bindPopup(card)
       });
@@ -63,6 +87,8 @@
     document.getElementById('agRefresh').addEventListener('click',load);
     gradeEl.addEventListener('change',()=>{draw(userPoint||map.getCenter())});
     radiusEl.addEventListener('change',load);
+    document.getElementById('amigoGasMap').addEventListener('click',e=>{const button=e.target.closest('.agReportStation');if(!button)return;try{window.prefillAmigoGasReport(JSON.parse(button.dataset.station))}catch{}});
     locate(true);
   }).catch(()=>{document.getElementById('agMapStatus').textContent='Map tiles could not load. Google and GasBuddy links remain active.'});
 })();
+
