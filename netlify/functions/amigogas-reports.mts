@@ -33,7 +33,10 @@ export default async (req: Request) => {
       recentKeys.map((key) => store.get(key, { type: "json" }))
     )).filter(Boolean);
 
-    return json({ reports });
+    const statusKeys = (await store.list({ prefix: "status/" })).blobs
+      .sort((a, b) => b.key.localeCompare(a.key)).slice(0, 100).map((item) => item.key);
+    const statuses = (await Promise.all(statusKeys.map((key) => store.get(key, { type: "json" })))).filter(Boolean);
+    return json({ reports, statuses });
   }
 
   if (req.method !== "POST") return json({ error: "Method not allowed" }, 405);
@@ -46,6 +49,28 @@ export default async (req: Request) => {
   }
 
   if (body.website) return json({ ok: true });
+
+  const action = clean(body.action, 20).toLowerCase() || "report";
+  if (action === "confirm") {
+    const reportId = clean(body.reportId, 80);
+    if (!reportId) return json({ error: "A report is required." }, 400);
+    const key = `report/${reportId}`;
+    const existing: any = await store.get(key, { type: "json" });
+    if (!existing) return json({ error: "Report not found." }, 404);
+    existing.confirmations = Math.min(999, Number(existing.confirmations || 0) + 1);
+    existing.lastConfirmedAt = new Date().toISOString();
+    await store.setJSON(key, existing);
+    return json({ ok: true, report: existing });
+  }
+  if (action === "status") {
+    const stationId = clean(body.stationId, 120), station = clean(body.station, 80);
+    const status = clean(body.status, 30).toLowerCase(), note = clean(body.note, 160);
+    if ((!stationId && !station) || !["open", "fuel-limited", "out-of-fuel", "closed", "pumps-down"].includes(status)) return json({ error: "Choose a valid station status." }, 400);
+    const now = new Date();
+    const item = { id: `${now.getTime()}-${crypto.randomUUID().slice(0, 8)}`, stationId, station, status, note, reportedAt: now.toISOString(), source: "community", verified: false };
+    await store.setJSON(`status/${item.id}`, item);
+    return json({ ok: true, status: item }, 201);
+  }
 
   const station = clean(body.station, 80);
   const address = clean(body.address, 120);
@@ -80,6 +105,7 @@ export default async (req: Request) => {
     reportedAt: now.toISOString(),
     source: "community",
     verified: false,
+    confirmations: 0,
   };
 
   await store.setJSON(`report/${report.id}`, report);
@@ -87,4 +113,3 @@ export default async (req: Request) => {
 };
 
 export const config = { path: "/api/amigogas/reports" };
-
