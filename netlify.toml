@@ -17,6 +17,16 @@
   status = 200
   force = true
 
+[[redirects]]
+  from = "/asset-tree"
+  to = "/asset-tree.html"
+  status = 200
+
+[[redirects]]
+  from = "/portfolio"
+  to = "/asset-tree.html"
+  status = 200
+
 [[headers]]
   for = "/*"
   [headers.values]
