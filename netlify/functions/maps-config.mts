@@ -1,4 +1,5 @@
 const allowedOrigins = new Set([
+  "https://calculadora-network.netlify.app",
   "https://real-deals.app",
   "https://www.real-deals.app",
   "https://realdeals-crm.netlify.app",
