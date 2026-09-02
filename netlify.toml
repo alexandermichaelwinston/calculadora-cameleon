@@ -5,15 +5,64 @@
 [build.environment]
   NODE_VERSION = "20"
 
+# La Creme is the canonical public brand. Legacy La Crema URLs remain as permanent compatibility redirects.
 [[redirects]]
   from = "/lacrema.html"
-  to = "/lacrema-v2.html"
+  to = "/lacreme.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/lacrema"
+  to = "/lacreme.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/lacrema-v2.html"
+  to = "/lacreme.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/lacreme"
+  to = "/lacreme.html"
   status = 200
   force = true
 
 [[redirects]]
+  from = "/lacrema-deals.html"
+  to = "/lacreme-deals.html"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/lacrema-deals"
-  to = "/lacrema-deals.html"
+  to = "/lacreme-deals.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/lacreme-deals"
+  to = "/lacreme-deals.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/lacrema-partners.html"
+  to = "/lacreme-partners.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/lacrema-partners"
+  to = "/lacreme-partners.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/lacreme-partners"
+  to = "/lacreme-partners.html"
   status = 200
   force = true
 
@@ -41,9 +90,15 @@
     Content-Type = "image/jpeg"
 
 [[headers]]
+  for = "/assets/la-creme-houston-social.png"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+    Content-Type = "image/png"
+
+[[headers]]
   for = "/assets/la-crema-taco-social-final.jpg"
   [headers.values]
     Cache-Control = "public, max-age=3600"
     Content-Type = "image/jpeg"
 
-# La Crema final social share card revision: 2026-08-26
+# La Creme canonical brand migration: 2026-09-02
