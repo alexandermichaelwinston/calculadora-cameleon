@@ -1,5 +1,5 @@
 [build]
-  command = "node scripts/enrich-social.js"
+  command = "node scripts/enrich-social.js && node scripts/prefer-google.js"
   publish = "."
 
 [build.environment]
