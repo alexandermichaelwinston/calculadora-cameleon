@@ -3,6 +3,8 @@
   "private": true,
   "type": "module",
   "dependencies": {
-    "@netlify/blobs": "latest"
+    "@netlify/blobs": "latest",
+    "@netlify/functions": "latest",
+    "stripe": "^22.4.0"
   }
 }
