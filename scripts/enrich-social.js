@@ -33,6 +33,7 @@ function renamePublicBrand(text) {
     .replaceAll("/assets/la-crema-taco-social-final.jpg", "/assets/la-creme-houston-social.png")
     .replaceAll("/assets/la-crema-taco-social.jpg", "/assets/la-creme-houston-social.png")
     .replaceAll("/assets/el-cameleon-card-la-crema.svg", "/assets/el-cameleon-card-la-creme.svg")
+    .replaceAll("https://calculadora-network.netlify.app/lacreme.html", "https://lacreme.app/")
     .replaceAll("LA CREMA", "LA CREME")
     .replaceAll("La Crema", "La Creme")
     .replaceAll("la crema", "la creme");
