@@ -5,6 +5,31 @@
 [build.environment]
   NODE_VERSION = "20"
 
+# La Creme custom domains: keep the shared project intact while serving La Creme at each custom-domain root.
+[[redirects]]
+  from = "https://lacreme.app/"
+  to = "/lacreme.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://www.lacreme.app/"
+  to = "https://lacreme.app/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://lacreme.reviews/"
+  to = "/lacreme.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://www.lacreme.reviews/"
+  to = "https://lacreme.reviews/"
+  status = 301
+  force = true
+
 # La Creme is the canonical public brand. Legacy La Crema URLs remain as permanent compatibility redirects.
 [[redirects]]
   from = "/lacrema.html"
