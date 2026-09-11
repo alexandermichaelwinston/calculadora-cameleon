@@ -41,6 +41,36 @@ function renamePublicBrand(text) {
 
 materialize();
 
+function applyLaCremeSocialMetadata() {
+  const file = path.join(root, "lacreme.html");
+  if (!fs.existsSync(file)) throw new Error("La Creme canonical page was not generated.");
+
+  const image = "https://lacreme.app/assets/la-creme-houston-social-20260911.jpg";
+  let page = fs.readFileSync(file, "utf8");
+
+  page = page.replace(
+    /<meta\s+(?:property|name)=["'](?:og:image(?::[^"']*)?|twitter:image(?::[^"']*)?)["'][^>]*>\s*/gi,
+    ""
+  );
+
+  const socialTags = `
+<meta property="og:site_name" content="La Creme">
+<meta property="og:image" content="${image}">
+<meta property="og:image:secure_url" content="${image}">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="La Creme Houston food discovery — best tacos and hottest trending date-night spots">
+<meta name="twitter:image" content="${image}">
+<meta name="twitter:image:alt" content="La Creme Houston food discovery — best tacos and hottest trending date-night spots">
+`;
+
+  page = page.replace("</head>", `${socialTags}\n</head>`);
+  fs.writeFileSync(file, page);
+}
+
+applyLaCremeSocialMetadata();
+
 // Preserve the existing Calculadora homepage social artwork behavior.
 const homeFile = path.join(root, "index.html");
 if (fs.existsSync(homeFile)) {
