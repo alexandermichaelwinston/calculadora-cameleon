@@ -48,8 +48,12 @@ const injected = `
 @media(max-width:620px){.eco-art{min-height:175px}.news .pic{min-height:235px}.eco-body{padding:19px!important}.eco h4{font-size:20px!important}.eco p{font-size:13px!important;line-height:1.55!important}}
 </style>`;
 
-export default async (_req: Request, context: Context) => {
+export default async (request: Request, context: Context) => {
   const response = await context.next();
+  const host = new URL(request.url).hostname.toLowerCase();
+  if (["lacreme.app", "www.lacreme.app", "lacreme.reviews", "www.lacreme.reviews"].includes(host)) {
+    return response;
+  }
   const contentType = response.headers.get("content-type") || "";
   if (!contentType.includes("text/html")) return response;
 
