@@ -1,0 +1,233 @@
+.portfolioRibbon {
+  --neon-red: #ff365f;
+  --neon-orange: #ff7a18;
+  --neon-gold: #ffd23f;
+  --neon-cyan: #16e7ff;
+  position: relative;
+  margin-top: 42px;
+  padding: 28px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 98, 80, .7);
+  border-radius: 26px;
+  color: #fff;
+  background:
+    radial-gradient(circle at 8% 0, rgba(255, 54, 95, .23), transparent 25rem),
+    radial-gradient(circle at 96% 100%, rgba(22, 231, 255, .14), transparent 28rem),
+    linear-gradient(135deg, #17080b, #42100f 55%, #1d0b10);
+  box-shadow: 0 0 0 1px rgba(255, 54, 95, .14), 0 0 30px rgba(255, 54, 95, .22), 0 24px 60px rgba(30, 5, 8, .35);
+}
+
+.portfolioRibbon::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, .06) 50%, transparent 65%);
+  transform: translateX(-100%);
+  animation: ecoShine 7s ease-in-out infinite;
+}
+
+@keyframes ecoShine {
+  0%, 72% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.portfolioHead {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.portfolioRibbon h3 {
+  margin: 0 0 8px;
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.03;
+  text-shadow: 0 0 20px rgba(255, 104, 83, .28);
+}
+
+.portfolioRibbon p {
+  max-width: 850px;
+  margin: 0;
+  color: #f3dcd6;
+  line-height: 1.5;
+}
+
+.swipeHint {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border: 1px solid #ffbc70;
+  border-radius: 999px;
+  color: #fff;
+  background: linear-gradient(135deg, var(--neon-red), var(--neon-orange));
+  box-shadow: 0 0 22px rgba(255, 74, 56, .48);
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.portfolioCarousel {
+  position: relative;
+  z-index: 2;
+}
+
+.portfolioTrack {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 9px 4px 16px;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: none;
+}
+
+.portfolioTrack::-webkit-scrollbar { display: none; }
+
+.ecoCard {
+  --card-neon: var(--neon-red);
+  position: relative;
+  flex: 0 0 285px;
+  min-height: 255px;
+  overflow: hidden;
+  border: 2px solid var(--card-neon);
+  border-radius: 19px;
+  scroll-snap-align: start;
+  background: #1e1114;
+  box-shadow: 0 0 14px color-mix(in srgb, var(--card-neon) 56%, transparent), inset 0 0 0 1px rgba(255, 255, 255, .1);
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+
+.ecoCard:nth-child(4n + 2) { --card-neon: var(--neon-orange); }
+.ecoCard:nth-child(4n + 3) { --card-neon: var(--neon-gold); }
+.ecoCard:nth-child(4n + 4) { --card-neon: var(--neon-cyan); }
+
+.ecoCard:hover,
+.ecoCard:focus-visible {
+  outline: 0;
+  transform: translateY(-5px) scale(1.015);
+  box-shadow: 0 0 25px color-mix(in srgb, var(--card-neon) 80%, transparent), 0 18px 34px rgba(0, 0, 0, .4);
+}
+
+.ecoCard img {
+  display: block;
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  filter: saturate(1.15) contrast(1.06);
+}
+
+.ecoCard::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent 29%, rgba(15, 4, 8, .06) 50%, rgba(15, 4, 8, .98) 78%);
+}
+
+.ecoBadge {
+  position: absolute;
+  z-index: 2;
+  top: 12px;
+  left: 12px;
+  padding: 7px 9px;
+  border: 1px solid var(--card-neon);
+  border-radius: 999px;
+  color: #fff;
+  background: rgba(20, 7, 10, .9);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--card-neon) 70%, transparent);
+  font-size: 9px;
+  font-weight: 950;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.ecoCardBody {
+  position: absolute;
+  z-index: 3;
+  right: 16px;
+  bottom: 15px;
+  left: 16px;
+}
+
+.ecoCardBody strong {
+  display: block;
+  color: #fff;
+  font: 900 23px/1.05 Georgia, serif;
+  text-shadow: 0 2px 12px #000;
+}
+
+.ecoCardBody span {
+  display: block;
+  margin-top: 6px;
+  color: #f0deda;
+  font-size: 11px;
+  line-height: 1.38;
+}
+
+.ecoCardBody b {
+  display: inline-flex;
+  margin-top: 9px;
+  color: var(--card-neon);
+  font-size: 11px;
+  letter-spacing: .02em;
+  text-shadow: 0 0 10px color-mix(in srgb, var(--card-neon) 75%, transparent);
+}
+
+.carouselControl {
+  position: absolute;
+  z-index: 4;
+  top: 50%;
+  display: grid;
+  width: 46px;
+  height: 46px;
+  place-items: center;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  color: #fff;
+  background: linear-gradient(135deg, var(--neon-red), var(--neon-orange));
+  box-shadow: 0 0 24px rgba(255, 54, 95, .62), 0 8px 22px rgba(0, 0, 0, .35);
+  transform: translateY(-50%);
+  font-size: 23px;
+  font-weight: 950;
+  cursor: pointer;
+}
+
+.carouselControl:hover {
+  filter: brightness(1.18);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.carouselControl.prev { left: -17px; }
+.carouselControl.next { right: -17px; }
+
+.affiliateDisclosure {
+  position: relative;
+  z-index: 2;
+  margin: 4px 2px 0 !important;
+  color: #cdb7b3 !important;
+  font-size: 10px;
+  line-height: 1.45;
+}
+
+@media (max-width: 720px) {
+  .portfolioRibbon { padding: 22px 18px; }
+  .portfolioHead { display: block; }
+  .swipeHint { margin-top: 14px; }
+  .ecoCard { flex-basis: 82vw; max-width: 310px; }
+  .carouselControl { width: 40px; height: 40px; }
+  .carouselControl.prev { left: -10px; }
+  .carouselControl.next { right: -10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolioRibbon::before { animation: none; }
+  .portfolioTrack { scroll-behavior: auto; }
+}
