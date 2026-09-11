@@ -11,6 +11,17 @@ function replaceRequired(text, before, after, label) {
 if (!fs.existsSync(file)) throw new Error("La Creme canonical page was not generated.");
 let page = fs.readFileSync(file, "utf8");
 
+// The compressed canonical page may already contain this patch after a previous
+// production materialization. Keep Netlify builds repeatable in either state.
+if (
+  page.includes("// Build Google on a full-size but invisible layer") &&
+  page.includes('elements.googleLayer.style.visibility = "visible";') &&
+  page.includes('googleAvailable = true;\n        showGoogleMap();')
+) {
+  console.log("La Creme Google-map preference is already applied.");
+  process.exit(0);
+}
+
 page = replaceRequired(
   page,
   '    activeProvider = "open";\n    elements.googleLayer.hidden = true;\n',
