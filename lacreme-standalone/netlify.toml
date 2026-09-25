@@ -1,0 +1,18 @@
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "/api/*"
+  to = "https://calculadora-network.netlify.app/api/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/lacreme.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/lacrema.html"
+  to = "/"
+  status = 301
