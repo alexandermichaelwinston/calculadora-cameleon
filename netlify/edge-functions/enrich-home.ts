@@ -1,6 +1,6 @@
 import type { Context, Config } from "@netlify/edge-functions";
 
-const shareImage = "https://images.unsplash.com/photo-1591696205602-2f950c417cb9?auto=format&fit=crop&w=1200&h=630&q=82";
+const shareImage = "https://calculadora-network.netlify.app/assets/calculadora-ecosystem-share.jpg?v=20260930";
 
 const injected = `
 <link rel="canonical" href="https://calculadora-network.netlify.app/">
@@ -70,6 +70,7 @@ export default async (request: Request, context: Context) => {
   const output = cleaned.replace("</head>", `${injected}\n</head>`);
   const headers = new Headers(response.headers);
   headers.set("content-type", "text/html; charset=utf-8");
+  headers.set("link", '<https://calculadora-network.netlify.app/>; rel="canonical"');
   return new Response(output, { status: response.status, headers });
 };
 

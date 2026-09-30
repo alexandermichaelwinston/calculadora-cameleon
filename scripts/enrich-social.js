@@ -75,7 +75,7 @@ applyLaCremeSocialMetadata();
 const homeFile = path.join(root, "index.html");
 if (fs.existsSync(homeFile)) {
   let home = fs.readFileSync(homeFile, "utf8");
-  const image = "https://calculadora-network.netlify.app/assets/el-cameleon-social.jpg";
+  const image = "https://calculadora-network.netlify.app/assets/calculadora-ecosystem-share.jpg?v=20260930";
   home = home.replace(/<meta\s+property=["']og:image(?::[^"']*)?["'][^>]*>\s*/gi, "");
   home = home.replace(/<meta\s+name=["']twitter:image["'][^>]*>\s*/gi, "");
   home = home.replace("</head>", `
@@ -83,8 +83,8 @@ if (fs.existsSync(homeFile)) {
 <meta property="og:image" content="${image}">
 <meta property="og:image:secure_url" content="${image}">
 <meta property="og:image:type" content="image/jpeg">
-<meta property="og:image:width" content="600">
-<meta property="og:image:height" content="400">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Calculadora and El Camaleón financial intelligence split-screen artwork">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="${image}">
