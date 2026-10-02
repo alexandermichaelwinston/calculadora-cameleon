@@ -3,7 +3,6 @@ const allowedOrigins = new Set([
   "https://real-deals.app",
   "https://www.real-deals.app",
   "https://realdeals-crm.netlify.app",
-  "https://real-deals-feature-preview.roomstay.chatgpt.site",
 ]);
 
 export default async (request: Request) => {
