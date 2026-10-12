@@ -5,7 +5,8 @@
 [build.environment]
   NODE_VERSION = "20"
 
-# La Creme custom domains: keep the shared project intact while serving La Creme at each custom-domain root.
+# LaCreme.app is the current publisher website, hosted by the standalone project.
+# Keep the shared ecosystem intact and send the former La Creme entry points there.
 [[redirects]]
   from = "https://lacreme.app/"
   to = "/lacreme.html"
@@ -20,39 +21,45 @@
 
 [[redirects]]
   from = "https://lacreme.reviews/"
-  to = "/lacreme.html"
-  status = 200
+  to = "https://lacreme.app/"
+  status = 301
   force = true
 
 [[redirects]]
   from = "https://www.lacreme.reviews/"
-  to = "https://lacreme.reviews/"
+  to = "https://lacreme.app/"
   status = 301
   force = true
 
-# La Creme is the canonical public brand. Legacy La Crema URLs remain as permanent compatibility redirects.
+# Send the exact URL cited in Rakuten's review, and its aliases, to the current website.
 [[redirects]]
   from = "/lacrema.html"
-  to = "/lacreme.html"
+  to = "https://lacreme.app/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/lacrema"
-  to = "/lacreme.html"
+  to = "https://lacreme.app/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/lacrema-v2.html"
-  to = "/lacreme.html"
+  to = "https://lacreme.app/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/lacreme"
-  to = "/lacreme.html"
-  status = 200
+  to = "https://lacreme.app/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/lacreme.html"
+  to = "https://lacreme.app/"
+  status = 301
   force = true
 
 [[redirects]]
