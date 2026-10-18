@@ -1,0 +1,164 @@
+{
+  "ecosystem": [
+    [
+      "Clipfabulous",
+      "Create images, videos and scroll-stopping campaigns.",
+      "ribbon-clipfabulous.jpg",
+      "https://clipfabulous.com/",
+      "Official destination",
+      "Start creating \u2192"
+    ],
+    [
+      "Rocket-Launcher.io",
+      "Websites, CRM and AI bots that follow up on leads.",
+      "ribbon-rocket-launcher.jpg",
+      "https://rocket-launcher.io/",
+      "Official destination",
+      "Explore websites & bots \u2192"
+    ],
+    [
+      "Houston Roof Estimates",
+      "Plan a roof project and request an estimate.",
+      "roofcast-current.jpg",
+      "https://houstonroofestimates.net/",
+      "Official destination",
+      "Estimate my roof \u2192"
+    ],
+    [
+      "Alex Pros Home & Pool",
+      "Bring your renovation, home and pool plans to life.",
+      "ribbon-alex-pros.jpg",
+      "https://alexproshomeandpool.com/",
+      "Official destination",
+      "Plan my project \u2192"
+    ],
+    [
+      "Real Deals",
+      "Explore property prospecting and investor tools.",
+      "ribbon-real-deals.jpg",
+      "https://real-deals.app/",
+      "Official destination",
+      "Find the next deal \u2192"
+    ],
+    [
+      "WebAppsMasterClass.AI",
+      "Explore the app-building program in our ecosystem catalog.",
+      "ribbon-masterclass.jpg",
+      "https://calculadora-network.netlify.app/#ai-empire",
+      "Official destination",
+      "Explore the program \u2192"
+    ],
+    [
+      "Factura Invoice",
+      "Prepare estimates, invoices and change orders.",
+      "ribbon-factura.jpg",
+      "https://facturainvoice.com/",
+      "Official destination",
+      "Create an invoice \u2192"
+    ],
+    [
+      "El Camale\u00f3n",
+      "Read ideas for business, AI and the operator mindset.",
+      "el-cameleon.webp",
+      "https://calculadora-network.netlify.app/el-cameleon.html",
+      "Official destination",
+      "Read El Camale\u00f3n \u2192"
+    ],
+    [
+      "Texas Merch",
+      "Discover Texas-inspired apparel and gifts.",
+      "texas-merch-social-preview.jpg",
+      "https://texasmerch.online/",
+      "Official destination",
+      "Shop Texas Merch \u2192"
+    ],
+    [
+      "TradeSherpa",
+      "Explore markets, investing tools and educational research.",
+      "tradesherpa.webp",
+      "https://tradesherpa.exchange/",
+      "Official destination",
+      "Explore TradeSherpa \u2192"
+    ],
+    [
+      "Yield Depot",
+      "Explore income strategies and market education.",
+      "yield-depot.jpg",
+      "https://calculadora-network.netlify.app/yield-depot.html",
+      "Official destination",
+      "Read the research \u2192"
+    ],
+    [
+      "AmigoGas",
+      "Explore fuel and road-trip planning tools.",
+      "ribbon-amigo-gas.jpg",
+      "https://calculadora-network.netlify.app/amigogas.html",
+      "Official destination",
+      "Plan the drive \u2192"
+    ]
+  ],
+  "shopping": [
+    [
+      "Bigfoot\u2019s massage-chair pick",
+      "Bigfoot found his favorite seat. Explore the BestMassage chair on Amazon.",
+      "bigfoot-massage-chair.jpg",
+      "https://www.amazon.com/dp/B08ZS9LYMM?tag=texasmerchonl-20",
+      "Affiliate link",
+      "See the chair on Amazon \u2192"
+    ],
+    [
+      "Texas Merch favorites",
+      "Make the next gift a little more Texas.",
+      "texas-merch-social-preview.jpg",
+      "https://texasmerch.online/",
+      "Official destination",
+      "Shop the collection \u2192"
+    ]
+  ],
+  "youtube": [
+    {
+      "title": "Bigfoot Stole My Spotlight \ud83d\ude02 Your Fast Track to Viral-Worthy Videos | ClipFabulous.com& Lifestyles",
+      "url": "https://www.youtube.com/watch?v=foNJOJINuqw",
+      "image": "https://i3.ytimg.com/vi/foNJOJINuqw/hqdefault.jpg",
+      "filename": "youtube-1.jpg"
+    },
+    {
+      "title": "I MADE THIS APP IT'S NOW A 3RD PARTY CONNECTOR FOR IMAGE GENERATION FOR CLAUDE CODE ! CHAT GPT, GROK",
+      "url": "https://www.youtube.com/watch?v=CSHd77NIbuY",
+      "image": "https://i4.ytimg.com/vi/CSHd77NIbuY/hqdefault.jpg",
+      "filename": "youtube-2.jpg"
+    },
+    {
+      "title": "Clipfabulous Image & Video Editing - I made this App. Check it out!",
+      "url": "https://www.youtube.com/watch?v=AoNrLKu39I0",
+      "image": "https://i2.ytimg.com/vi/AoNrLKu39I0/hqdefault.jpg",
+      "filename": "youtube-3.jpg"
+    }
+  ],
+  "social": [
+    [
+      "Michael on Facebook",
+      "Casitas Due\u00f1o a Due\u00f1o & Alex Pros Home & Pool.",
+      "social-facebook.jpg",
+      "https://www.facebook.com/CasitaHomesDuenoadueno/",
+      "Official destination",
+      "Follow on Facebook \u2192"
+    ],
+    [
+      "Michael on TikTok",
+      "Follow @duenoadueno for videos and local updates.",
+      "texas-merch-social-preview.jpg",
+      "https://www.tiktok.com/@duenoadueno",
+      "Official destination",
+      "Follow on TikTok \u2192"
+    ],
+    [
+      "Michael on YouTube",
+      "Follow the connected channel for new videos.",
+      "ribbon-clipfabulous.jpg",
+      "https://www.youtube.com/channel/UCxUbhRQJ8rVFbXs1lwOE-dg",
+      "Official destination",
+      "Subscribe on YouTube \u2192"
+    ]
+  ]
+}
