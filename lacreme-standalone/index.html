@@ -45,6 +45,7 @@ footer{margin-top:36px;background:var(--wine);color:#eadfd5;padding:32px 0;font-
 #local-picks {scroll-margin-top: 82px}
 .pickGrid {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px}
 .pickCard {display:flex;flex-direction:column;overflow:hidden;border:1px solid var(--line);border-radius:20px;background:var(--paper)}
+.localBusiness {margin-top:16px}
 .pickCard img {width:100%;aspect-ratio:1.91;object-fit:cover}
 .pickBody {padding:20px;display:flex;flex-direction:column;align-items:flex-start;flex:1}
 .pickBody h3 {margin:0;font-size:24px}
@@ -86,6 +87,13 @@ footer{margin-top:36px;background:var(--wine);color:#eadfd5;padding:32px 0;font-
         </div>
       </article>
     </div>
+    <aside class="localBusiness" aria-label="Local business resources">
+      <article class="pickCard">
+        <div class="pickBody"><h3>TikTok ads for local businesses</h3><p>Have a restaurant, shop or service to promote? Explore TikTok for Business. We may earn a commission for qualifying advertiser activity through this link.</p>
+          <a class="btn" href="https://getstartedtiktok.partnerlinks.io/himxd2pxix01" rel="sponsored noopener" target="_blank">Explore TikTok for Business →</a>
+        </div>
+      </article>
+    </aside>
   </div>
 </section>
 <section id="community"><div class="wrap"><div class="sectionHead"><div><span class="eyebrow">COMMUNITY INTELLIGENCE</span><h2>Drop a pin. Tell Houston why.</h2></div><p>Recommend a restaurant, taco truck, date spot, bar, art stop, music venue or hidden gem.</p></div><div class="community"><div class="panel"><h3>Add a favorite</h3><form id="pinForm"><div class="formgrid"><input name="name" placeholder="Place / experience name" required><input name="address" placeholder="Address / neighborhood" required><select name="kind"><option value="food">🌮 Food</option><option value="date">❤️ Date spot</option><option value="nightlife">🌙 Nightlife</option><option value="art">🎨 Art</option><option value="music">🎵 Music</option><option value="market">🛍 Market</option><option value="experience">✨ Experience</option></select><select name="chiles"><option value="5">🔥🔥🔥🔥🔥 FIRE</option><option value="4">🌶️🌶️🌶️🌶️</option><option value="3">🌶️🌶️🌶️</option></select><textarea class="full" name="note" placeholder="What makes it worth going? What should people order or do?"></textarea><button class="btn fire full" type="submit">Drop Pin →</button></div><div id="pinMsg" class="status"></div></form><div class="notice">Your place name, address or neighborhood, category, rating and note may appear publicly on La Creme. Share public places and keep private personal details out of your submission. Read our <a href="/privacy/">Privacy Policy</a> and <a href="/terms/">Terms and Conditions</a>.</div></div><div class="panel"><h3>Latest community heat</h3><div id="pinList"><div class="pin"><b>Loading community favorites…</b><small>Houston, Texas</small></div></div></div></div></div></section>
