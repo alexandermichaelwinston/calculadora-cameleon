@@ -8,6 +8,16 @@
   force = true
 
 [[redirects]]
+  from = "/home"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/home/"
+  to = "/"
+  status = 301
+
+[[redirects]]
   from = "/privacy.html"
   to = "/privacy/"
   status = 301
