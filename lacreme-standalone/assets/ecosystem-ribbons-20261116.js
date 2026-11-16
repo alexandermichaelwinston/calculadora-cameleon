@@ -38,10 +38,12 @@
         group.querySelectorAll('.aie-fill').forEach(el => el.remove());
         if (!reduced.matches) {
           const originals = Array.from(group.children);
-          let count = 0;
-          while (group.getBoundingClientRect().width < viewport.clientWidth && count < 24) {
-            const copy = hideCopy(originals[count++ % originals.length].cloneNode(true));
-            copy.classList.add('aie-fill'); group.append(copy);
+          let cycles = 0;
+          while (group.getBoundingClientRect().width < viewport.clientWidth && cycles++ < 12) {
+            originals.forEach(seed => {
+              const copy = hideCopy(seed.cloneNode(true));
+              copy.classList.add('aie-fill'); group.append(copy);
+            });
           }
           const copy = hideCopy(group.cloneNode(true));
           copy.classList.add('aie-clone'); track.append(copy);
