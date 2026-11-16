@@ -1,0 +1,660 @@
+{
+  "version": "2026-11-16.1",
+  "groups": [
+    {
+      "id": "shopping",
+      "title": "Shop & discover",
+      "description": "Original Texas style, local favorites and the stories behind our brands.",
+      "cards": [
+        {
+          "name": "TexasMerch.online",
+          "href": "https://texasmerch.online/",
+          "image": "https://calculadora-network.netlify.app/assets/empire/texas-merch-social-preview.jpg",
+          "category": "Texas originals",
+          "description": "Discover matching family outfits, all-over prints, swimwear and accessories.",
+          "cta": "Shop Texas Merch",
+          "relationship": "Official destination",
+          "affiliate": false,
+          "status": "Explore the website",
+          "alt": "TexasMerch.online — Discover matching family outfits, all-over prints, swimwear and accessories."
+        },
+        {
+          "name": "La Creme",
+          "href": "https://lacreme.app/",
+          "image": "https://calculadora-network.netlify.app/assets/empire/ribbon-la-creme.jpg",
+          "category": "Local discovery",
+          "description": "Discover Houston restaurants, tacos and date-night favorites.",
+          "cta": "Explore La Creme",
+          "relationship": "Official destination",
+          "affiliate": false,
+          "status": "Explore the website",
+          "alt": "La Creme — Discover Houston restaurants, tacos and date-night favorites."
+        },
+        {
+          "name": "AmigoGas",
+          "href": "https://calculadora-network.netlify.app/amigogas.html",
+          "image": "https://calculadora-network.netlify.app/assets/empire/ribbon-amigo-gas.jpg",
+          "category": "Fuel finder",
+          "description": "Compare nearby community-reported gas prices for your drive.",
+          "cta": "Find nearby fuel",
+          "relationship": "Official destination",
+          "affiliate": false,
+          "status": "Explore the website",
+          "alt": "AmigoGas — Compare nearby community-reported gas prices for your drive."
+        },
+        {
+          "name": "The Tall Texan",
+          "href": "https://calculadora-network.netlify.app/talltexan.html",
+          "image": "https://calculadora-network.netlify.app/assets/empire/talltexan.jpg",
+          "category": "Texas media",
+          "description": "Explore Texas stories, culture and local perspectives.",
+          "cta": "Read The Tall Texan",
+          "relationship": "Official destination",
+          "affiliate": false,
+          "status": "Explore the website",
+          "alt": "The Tall Texan — Explore Texas stories, culture and local perspectives."
+        },
+        {
+          "name": "La Pulga",
+          "href": "https://calculadora-network.netlify.app/lapulga.html",
+          "image": "https://calculadora-network.netlify.app/assets/empire/lapulga.jpg",
+          "category": "Community marketplace",
+          "description": "Explore the local community marketplace prototype.",
+          "cta": "Explore marketplace",
+          "relationship": "Official destination",
+          "affiliate": false,
+          "status": "Marketplace preview",
+          "alt": "La Pulga — Explore the local community marketplace prototype."
+        }
+      ],
+      "disclosure": ""
+    },
+    {
+      "id": "business",
+      "title": "Create & run your business",
+      "description": "Make content, follow up with leads, work with your team and manage agreements.",
+      "cards": [
+        {
+          "name": "Clipfabulous",
+          "href": "https://clipfabulous.com/",
+          "image": "https://calculadora-network.netlify.app/assets/empire/ribbon-clipfabulous.jpg",
+          "category": "Creative studio",
+          "description": "Create AI images, videos, avatars and social content.",
+          "cta": "Open studio",
+          "relationship": "Official destination",
+          "affiliate": false,
+          "status": "Explore the website",
+          "alt": "Clipfabulous — Create AI images, videos, avatars and social content."
+        },
+        {
+          "name": "Rocket-Launcher.io",
+          "href": "https://rocket-launcher.io/",
+          "image": "https://calculadora-network.netlify.app/assets/empire/ribbon-rocket-launcher.jpg",
+          "category": "CRM & automation",
+          "description": "Bring lead capture, follow-up and business systems together.",
+          "cta": "Explore business tools",
+          "relationship": "Official destination",
+          "affiliate": false,
+          "status": "Explore the website",
+          "alt": "Rocket-Launcher.io — Bring lead capture, follow-up and business systems together."
+        },
+        {
+          "name": "TeamConvo",
+          "href": "https://teamconvo.rocket-launcher.io/",
+          "image": "https://calculadora-network.netlify.app/assets/empire/teamconvo.jpg",
+          "category": "Team communications",
+          "description": "Coordinate conversations and agent handoffs in one workspace.",
+          "cta": "Open workspace",
+          "relationship": "Official destination",
+          "affiliate": false,
+          "status": "Account access required",
+          "alt": "TeamConvo — Coordinate conversations and agent handoffs in one workspace."
+        },
+        {
+          "name": "Factura Invoice",
+          "href": "https://facturainvoice.com/",
+          "image": "https://calculadora-network.netlify.app/assets/empire/ribbon-factura.jpg",
+          "category": "Estimates & invoicing",
+          "description": "Prepare estimates, approvals, invoices and payment links.",
+          "cta": "Open Factura",
+          "relationship": "Official destination",
+          "affiliate": false,
+          "status": "Explore the website",
+          "alt": "Factura Invoice — Prepare estimates, approvals, invoices and payment links."
+        },
+        {
+          "name": "SignStac",
+          "href": "https://calculadora-network.netlify.app/signstac.html",
+          "image": "https://calculadora-network.netlify.app/assets/empire/ribbon-signstac.jpg",
+          "category": "Agreements",
+          "description": "Preview document preparation, signing and agreement records.",
+          "cta": "Preview SignStac",
+          "relationship": "Official destination",
+          "affiliate": false,
+          "status": "Agreement workflow preview",
+          "alt": "SignStac — Preview document preparation, signing and agreement records."
+        },
+        {
+          "name": "El Camaleón",
+          "href": "https://calculadora-network.netlify.app/el-cameleon.html",
+          "image": "https://calculadora-network.netlify.app/assets/empire/el-cameleon.webp",
+          "category": "Business & media",
+          "description": "Read business, technology and opportunity intelligence.",
+          "cta": "Read El Camaleón",
+          "relationship": "Official destination",
+          "affiliate": false,
+          "status": "Explore the website",
+          "alt": "El Camaleón — Read business, technology and opportunity intelligence."
+        }
+      ],
+      "disclosure": ""
+    },
+    {
+      "id": "property",
+      "title": "Property & home",
+      "description": "Explore real estate workflows, roof estimates, renovation and project planning.",
+      "cards": [
+        {
+          "name": "Real Deals",
+          "href": "https://real-deals.app/",
+          "image": "https://calculadora-network.netlify.app/assets/empire/ribbon-real-deals.jpg",
+          "category": "Investor software",
+          "description": "Find property opportunities and organize leads, comps and offers.",
+          "cta": "Explore Real Deals",
+          "relationship": "Official destination",
+          "affiliate": false,
+          "status": "Explore the website",
+          "alt": "Real Deals — Find property opportunities and organize leads, comps and offers."
+        },
+        {
+          "name": "Alex Pros Home & Pool",
+          "href": "https://alexproshomeandpool.com/",
+          "image": "https://calculadora-network.netlify.app/assets/empire/ribbon-alex-pros.jpg",
+          "category": "Home services",
+          "description": "Request help with renovations, pools, roofing and outdoor living.",
+          "cta": "Plan your project",
+          "relationship": "Official destination",
+          "affiliate": false,
+          "status": "Explore the website",
+          "alt": "Alex Pros Home & Pool — Request help with renovations, pools, roofing and outdoor living."
+        },
+        {
+          "name": "Houston Roof Estimates",
+          "href": "https://houstonroofestimates.net/",
+          "image": "https://lacreme.app/assets/empire/roofcast-current.jpg",
+          "category": "Roof estimates",
+          "description": "Start with an address to estimate a roof and request a quote.",
+          "cta": "Estimate a roof",
+          "relationship": "Official destination",
+          "affiliate": false,
+          "status": "Explore the website",
+          "alt": "Houston Roof Estimates — Start with an address to estimate a roof and request a quote."
+        },
+        {
+          "name": "RoofCast",
+          "href": "https://houstonroofestimates.net/",
+          "image": "https://calculadora-network.netlify.app/assets/empire/roofcast-michael-v3.jpg",
+          "category": "Property measurement",
+          "description": "Explore roof measurement and commercial project planning.",
+          "cta": "Explore roof tools",
+          "relationship": "Official destination",
+          "affiliate": false,
+          "status": "Explore the website",
+          "alt": "RoofCast — Explore roof measurement and commercial project planning."
+        }
+      ],
+      "disclosure": ""
+    },
+    {
+      "id": "finance",
+      "title": "Finance, investing & comparison",
+      "description": "Explore calculators, market research, income ideas and comparison tools.",
+      "cards": [
+        {
+          "name": "Calculadora",
+          "href": "https://calculadora-network.netlify.app/",
+          "image": "https://calculadora-network.netlify.app/assets/empire/calculadora.webp",
+          "category": "Mortgage calculator",
+          "description": "Estimate your payment and review the cost of owning a home.",
+          "cta": "Calculate a payment",
+          "relationship": "Official destination",
+          "affiliate": false,
+          "status": "Explore the website",
+          "alt": "Calculadora — Estimate your payment and review the cost of owning a home."
+        },
+        {
+          "name": "TradeSherpa.exchange",
+          "href": "https://tradesherpa.exchange/",
+          "image": "https://calculadora-network.netlify.app/assets/empire/tradesherpa.webp",
+          "category": "Market research",
+          "description": "Explore charts, market information and trading education.",
+          "cta": "Explore markets",
+          "relationship": "Official destination",
+          "affiliate": false,
+          "status": "Explore the website",
+          "alt": "TradeSherpa.exchange — Explore charts, market information and trading education."
+        },
+        {
+          "name": "Yield Depot",
+          "href": "https://calculadora-network.netlify.app/yield-depot.html",
+          "image": "https://calculadora-network.netlify.app/assets/empire/yield-depot.jpg",
+          "category": "Income education",
+          "description": "Compare yield ideas and learn about income strategies.",
+          "cta": "Explore income tools",
+          "relationship": "Official destination",
+          "affiliate": false,
+          "status": "Explore the website",
+          "alt": "Yield Depot — Compare yield ideas and learn about income strategies."
+        },
+        {
+          "name": "Gold Shark",
+          "href": "https://calculadora-network.netlify.app/goldshark/",
+          "image": "https://calculadora-network.netlify.app/assets/empire/goldshark.jpg",
+          "category": "Precious metals",
+          "description": "Compare precious-metal prices and explore bullion buying tools.",
+          "cta": "Explore Gold Shark",
+          "relationship": "Official destination",
+          "affiliate": false,
+          "status": "Explore the website",
+          "alt": "Gold Shark — Compare precious-metal prices and explore bullion buying tools."
+        },
+        {
+          "name": "Best Quote / InsureCompare",
+          "href": "https://calculadora-network.netlify.app/insurequotes.html",
+          "image": "https://calculadora-network.netlify.app/assets/empire/best-quote.webp",
+          "category": "Insurance education",
+          "description": "Organize insurance needs and explore quote comparison tools.",
+          "cta": "Explore quote tools",
+          "relationship": "Official destination",
+          "affiliate": false,
+          "status": "Quote-comparison education",
+          "alt": "Best Quote / InsureCompare — Organize insurance needs and explore quote comparison tools."
+        },
+        {
+          "name": "CardCompare",
+          "href": "https://calculadora-network.netlify.app/creditcompare.html",
+          "image": "https://calculadora-network.netlify.app/assets/empire/cardcompare.jpg",
+          "category": "Credit education",
+          "description": "Compare card features, fees and rewards before choosing.",
+          "cta": "Explore CardCompare",
+          "relationship": "Official destination",
+          "affiliate": false,
+          "status": "Explore the website",
+          "alt": "CardCompare — Compare card features, fees and rewards before choosing."
+        }
+      ],
+      "disclosure": "Educational information only; not personalized investment, insurance or credit advice. Confirm rates, terms, eligibility and professional requirements with the provider."
+    },
+    {
+      "id": "food",
+      "title": "Food & wine",
+      "description": "Dinner, cookout and coffee picks from our connected merchants.",
+      "cards": [
+        {
+          "name": "Omaha Steaks · 32 Burgers & 32 Franks",
+          "href": "https://click.linksynergy.com/link?id=01PL%2fqPnn%2aU&offerid=704199.1475179121009406098904&type=2&murl=https%3a%2f%2fwww.omahasteaks.com%2fproduct%2f32-Burgers-and-32-Franks-72494",
+          "image": "https://cdn.shopify.com/s/files/1/1014/8773/9193/files/omaha-burgers-franks-affiliate.jpg?v=1794378864",
+          "category": "Food & gifts",
+          "description": "Burgers and franks for cookouts and family gatherings. Check current contents, availability and shipping at Omaha Steaks.",
+          "cta": "Shop Omaha Steaks",
+          "alt": "Omaha Steaks · 32 Burgers & 32 Franks official product artwork",
+          "group": "affiliate",
+          "affiliate": true,
+          "relationship": "Active affiliate link",
+          "status": "Retailer prices and availability apply"
+        },
+        {
+          "name": "Omaha Steaks · Premier Assortment",
+          "href": "https://click.linksynergy.com/link?id=01PL%2fqPnn%2aU&offerid=704199.14715684494648964590635&type=2&murl=https%3a%2f%2fwww.omahasteaks.com%2fproduct%2fThe-Premier-Assortment-74524",
+          "image": "https://cdn.shopify.com/s/files/1/1014/8773/9193/files/omaha-premier-assortment-affiliate.jpg?v=1794378867",
+          "category": "Food & gifts",
+          "description": "Explore an assortment for special dinners and food gifts. See the retailer for current contents and offers.",
+          "cta": "Shop Omaha Steaks",
+          "alt": "Omaha Steaks · Premier Assortment official product artwork",
+          "group": "affiliate",
+          "affiliate": true,
+          "relationship": "Active affiliate link",
+          "status": "Retailer prices and availability apply"
+        },
+        {
+          "name": "Omaha Steaks · Ribeye Cap Steaks",
+          "href": "https://click.linksynergy.com/link?id=01PL%2fqPnn%2aU&offerid=704199.147178797652780825526&type=2&murl=https%3a%2f%2fwww.omahasteaks.com%2fproduct%2fPrivate-Reserve-Ribeye-Cap-Steaks-4-5-oz-03344",
+          "image": "https://cdn.shopify.com/s/files/1/1014/8773/9193/files/omaha-ribeye-cap-affiliate.jpg?v=1794378869",
+          "category": "Food & gifts",
+          "description": "Private Reserve ribeye cap steaks for steakhouse-style dinners at home. View current options at Omaha Steaks.",
+          "cta": "Shop Omaha Steaks",
+          "alt": "Omaha Steaks · Ribeye Cap Steaks official product artwork",
+          "group": "affiliate",
+          "affiliate": true,
+          "relationship": "Active affiliate link",
+          "status": "Retailer prices and availability apply"
+        },
+        {
+          "name": "Peet’s Coffee",
+          "href": "https://www.jdoqocy.com/click-101904911-13921671",
+          "image": "https://cdn.shopify.com/s/files/1/1014/8773/9193/files/peets-coffee-affiliate-banner.jpg?v=1794378872",
+          "category": "Coffee & tea",
+          "description": "Explore coffee, tea and brewing favorites for your next cup.",
+          "cta": "Shop Peet’s",
+          "alt": "Peet’s Coffee official product artwork",
+          "group": "affiliate",
+          "affiliate": true,
+          "relationship": "Active affiliate link",
+          "status": ""
+        },
+        {
+          "name": "Wine.com",
+          "href": "https://www.wine.com/",
+          "image": "https://clipfabulous.com/assets/partners/wine-webinar-20261010.jpg",
+          "category": "WINE & GIFTS",
+          "description": "Explore wines, gifts and learning resources. For adults 21+; shipping eligibility varies.",
+          "cta": "Explore Wine.com",
+          "alt": "Official Wine.com Day artwork featuring winemakers and Wine.com branding",
+          "group": "resource",
+          "affiliate": false,
+          "relationship": "Official destination",
+          "status": "Official retailer website"
+        }
+      ],
+      "disclosure": "Affiliate disclosure: we may earn a commission on qualifying purchases through cards labeled “Active affiliate link.” Wine.com is currently linked as an official retailer destination. Alcohol is for adults 21+; shipping, eligibility and retailer terms apply."
+    },
+    {
+      "id": "home",
+      "title": "Home & design",
+      "description": "Explore house plans and our original Bigfoot massage-chair campaign.",
+      "cards": [
+        {
+          "name": "Bigfoot’s massage-chair pick",
+          "href": "https://www.amazon.com/dp/B08ZS9LYMM?tag=texasmerchonl-20",
+          "image": "https://cdn.shopify.com/s/files/1/1014/8773/9193/files/bigfoot-massage-chair-amazon-affiliate.jpg?v=1794378906",
+          "category": "Home & relaxation",
+          "description": "Explore Bigfoot’s featured BestMassage chair. Check current options and availability on Amazon.",
+          "cta": "See the chair",
+          "alt": "Bigfoot massage chair campaign for the linked BestMassage chair on Amazon",
+          "group": "affiliate",
+          "affiliate": true,
+          "relationship": "Active affiliate link",
+          "status": "Retailer options and availability apply"
+        },
+        {
+          "name": "Architectural Designs",
+          "href": "https://www.anrdoezrs.net/click-101904911-13731705",
+          "image": "/assets/ecosystem-footer/architectural-designs.jpg",
+          "category": "House plans & design inspiration",
+          "description": "Explore house plans for your next build, from farmhouse inspiration to layouts that fit your goals.",
+          "cta": "Explore house plans",
+          "alt": "Architectural Designs farmhouse plan 56440SM with a covered porch",
+          "group": "affiliate",
+          "affiliate": true,
+          "relationship": "Active affiliate link",
+          "status": ""
+        }
+      ],
+      "disclosure": "We may earn a commission from qualifying purchases. As an Amazon Associate, we earn from qualifying purchases. Plan licenses, product details, shipping and availability are set by each retailer."
+    },
+    {
+      "id": "resources",
+      "title": "Creator & business resources",
+      "description": "Explore the platforms and programs behind your next campaign.",
+      "cards": [
+        {
+          "name": "HighLevel",
+          "href": "https://www.gohighlevel.com/",
+          "image": "https://texasmerch.online/cdn/shop/t/20/assets/ribbon-highlevel.jpg?v=93641799435408993901794460854",
+          "category": "Creator and business",
+          "description": "Visit the CRM and automation platform for business follow-up.",
+          "cta": "Visit official site",
+          "alt": "HighLevel CRM and automation campaign with a pipeline dashboard",
+          "group": "resource",
+          "affiliate": false,
+          "relationship": "Official destination",
+          "status": ""
+        },
+        {
+          "name": "TikTok for Business",
+          "href": "https://ads.tiktok.com/business/en",
+          "image": "https://clipfabulous.com/assets/partners/tiktok-business-20261010.png",
+          "category": "CREATOR ADVERTISING",
+          "description": "Explore TikTok's official advertising tools and business resources.",
+          "cta": "Explore TikTok for Business",
+          "alt": "Official TikTok for Business artwork with its brand mark and creators",
+          "group": "resource",
+          "affiliate": false,
+          "relationship": "Official destination",
+          "status": ""
+        },
+        {
+          "name": "Rakuten Advertising",
+          "href": "https://rakutenadvertising.com/",
+          "image": "https://texasmerch.online/cdn/shop/t/20/assets/ribbon-rakuten-advertising.jpg?v=18340287782092628581794460854",
+          "category": "Creator and business",
+          "description": "Explore the advertiser and publisher partnership network.",
+          "cta": "Visit official site",
+          "alt": "Rakuten Advertising publisher network campaign with reporting tools",
+          "group": "resource",
+          "affiliate": false,
+          "relationship": "Official destination",
+          "status": ""
+        }
+      ],
+      "disclosure": "These cards link to official providers and program information. Provider pricing, eligibility and terms apply."
+    },
+    {
+      "id": "learn",
+      "title": "Watch & learn",
+      "description": "Editing, content, business and property lessons from established channels.",
+      "cards": [
+        {
+          "name": "CapCut",
+          "href": "https://www.youtube.com/@CapCutofficial",
+          "image": "https://clipfabulous.com/assets/partners/capcut-official-video-20261010.jpg",
+          "category": "QUICK CREATOR EDITS",
+          "description": "Learn mobile and desktop editing, captions, effects and AI-assisted workflows.",
+          "cta": "Watch CapCut tutorials",
+          "alt": "Official CapCut tutorial artwork showing its instructor, logo and AI editing lesson",
+          "group": "tutorial",
+          "affiliate": false,
+          "relationship": "Official destination",
+          "status": ""
+        },
+        {
+          "name": "Adobe Video & Motion",
+          "href": "https://www.youtube.com/@AdobeVideo",
+          "image": "https://clipfabulous.com/assets/partners/adobe-official-video-20261010.jpg",
+          "category": "PREMIERE & AFTER EFFECTS",
+          "description": "Develop your editing, color, motion graphics and finishing skills.",
+          "cta": "Watch Adobe tutorials",
+          "alt": "Official Adobe Video tutorial with Premiere color controls and an instructor",
+          "group": "tutorial",
+          "affiliate": false,
+          "relationship": "Official destination",
+          "status": ""
+        },
+        {
+          "name": "Blackmagic Design",
+          "href": "https://www.youtube.com/@BlackmagicDesignOfficial",
+          "image": "https://clipfabulous.com/assets/partners/blackmagic-editing-20261010.jpg",
+          "category": "DAVINCI RESOLVE",
+          "description": "Explore editing, color grading, visual effects and sound in DaVinci Resolve.",
+          "cta": "Watch Resolve training",
+          "alt": "Blackmagic Design's official DaVinci Resolve editing lesson workstation",
+          "group": "tutorial",
+          "affiliate": false,
+          "relationship": "Official destination",
+          "status": ""
+        },
+        {
+          "name": "Think Media",
+          "href": "https://www.youtube.com/@ThinkMediaTV",
+          "image": "https://clipfabulous.com/assets/partners/thinkmedia-official-video-20261010.jpg",
+          "category": "CHANNEL STRATEGY",
+          "description": "Explore channel setup, production choices and audience growth lessons.",
+          "cta": "Explore channel strategy",
+          "alt": "Think Media channel setup tutorial with Sean Cannell and a YouTube phone",
+          "group": "tutorial",
+          "affiliate": false,
+          "relationship": "Official destination",
+          "status": ""
+        },
+        {
+          "name": "Film Booth",
+          "href": "https://www.youtube.com/@FilmBooth",
+          "image": "https://clipfabulous.com/assets/partners/filmbooth-official-video-20261010.jpg",
+          "category": "STORYTELLING & RETENTION",
+          "description": "Build stronger video ideas, engaging edits and clearer stories.",
+          "cta": "Watch storytelling lessons",
+          "alt": "Film Booth tutorial with Ed Lawrence and a video editing timeline",
+          "group": "tutorial",
+          "affiliate": false,
+          "relationship": "Official destination",
+          "status": ""
+        },
+        {
+          "name": "YouTube Creators",
+          "href": "https://www.youtube.com/channel/UCkRfArvrzheW2E7b6SVT7vQ",
+          "image": "https://clipfabulous.com/assets/partners/youtube-creators-20261010.webp",
+          "category": "YOUTUBE BEST PRACTICES",
+          "description": "Learn directly from YouTube about publishing, channel tools and creator features.",
+          "cta": "Learn from YouTube",
+          "alt": "Official YouTube Creators artwork with creator videos and mobile interfaces",
+          "group": "tutorial",
+          "affiliate": false,
+          "relationship": "Official destination",
+          "status": ""
+        },
+        {
+          "name": "OpenAI",
+          "href": "https://www.youtube.com/@OpenAI",
+          "image": "https://texasmerch.online/cdn/shop/t/20/assets/ribbon-youtube-openai.jpg?v=88359209386698107111794460854",
+          "category": "AI learning",
+          "description": "Watch AI research, product demonstrations, and creative walkthroughs.",
+          "cta": "Watch channel",
+          "alt": "OpenAI YouTube learning studio campaign",
+          "group": "tutorial",
+          "affiliate": false,
+          "relationship": "Official destination",
+          "status": ""
+        },
+        {
+          "name": "BiggerPockets",
+          "href": "https://www.youtube.com/@biggerpockets",
+          "image": "https://texasmerch.online/cdn/shop/t/20/assets/ribbon-youtube-biggerpockets.jpg?v=67570793559788582411794460854",
+          "category": "Real estate learning",
+          "description": "Watch conversations about rentals, deals, and real estate businesses.",
+          "cta": "Watch channel",
+          "alt": "BiggerPockets real estate podcast studio campaign",
+          "group": "tutorial",
+          "affiliate": false,
+          "relationship": "Official destination",
+          "status": ""
+        },
+        {
+          "name": "HighLevel Tutorials",
+          "href": "https://www.youtube.com/@gohighlevel",
+          "image": "https://texasmerch.online/cdn/shop/t/20/assets/ribbon-youtube-highlevel.jpg?v=48131812980754975371794460854",
+          "category": "Business learning",
+          "description": "Learn about CRM pipelines, workflows, and automated follow-up.",
+          "cta": "Watch channel",
+          "alt": "HighLevel YouTube tutorial campaign showing workflows",
+          "group": "tutorial",
+          "affiliate": false,
+          "relationship": "Official destination",
+          "status": ""
+        }
+      ],
+      "disclosure": ""
+    },
+    {
+      "id": "follow",
+      "title": "Follow Michael & the ecosystem",
+      "description": "Watch our creative campaigns and connect with Michael’s verified channels.",
+      "cards": [
+        {
+          "name": "Bigfoot stole my spotlight",
+          "href": "https://www.youtube.com/watch?v=foNJOJINuqw",
+          "image": "https://lacreme.app/assets/empire/youtube-1.jpg",
+          "category": "Michael’s videos",
+          "description": "Watch Michael’s Bigfoot creative campaign.",
+          "cta": "Watch on YouTube",
+          "alt": "Bigfoot stole my spotlight — Watch Michael’s Bigfoot creative campaign.",
+          "group": "owned-video",
+          "affiliate": false,
+          "relationship": "Official destination",
+          "status": ""
+        },
+        {
+          "name": "See the Clipfabulous connector",
+          "href": "https://www.youtube.com/watch?v=CSHd77NIbuY",
+          "image": "https://lacreme.app/assets/empire/youtube-2.jpg",
+          "category": "Michael’s videos",
+          "description": "Explore Michael’s image-generation app walkthrough.",
+          "cta": "Watch on YouTube",
+          "alt": "See the Clipfabulous connector — Explore Michael’s image-generation app walkthrough.",
+          "group": "owned-video",
+          "affiliate": false,
+          "relationship": "Official destination",
+          "status": ""
+        },
+        {
+          "name": "Inside Clipfabulous",
+          "href": "https://www.youtube.com/watch?v=AoNrLKu39I0",
+          "image": "https://lacreme.app/assets/empire/youtube-3.jpg",
+          "category": "Michael’s videos",
+          "description": "Watch Michael demonstrate his creative app.",
+          "cta": "Watch on YouTube",
+          "alt": "Inside Clipfabulous — Watch Michael demonstrate his creative app.",
+          "group": "owned-video",
+          "affiliate": false,
+          "relationship": "Official destination",
+          "status": ""
+        },
+        {
+          "name": "Michael on Facebook",
+          "href": "https://www.facebook.com/CasitaHomesDuenoadueno/",
+          "image": "https://lacreme.app/assets/empire/social-facebook.jpg",
+          "category": "Follow Michael",
+          "description": "Casitas Dueño a Dueño & Alex Pros Home & Pool.",
+          "cta": "Follow on Facebook",
+          "alt": "Michael on Facebook — Casitas Dueño a Dueño & Alex Pros Home & Pool.",
+          "group": "social",
+          "affiliate": false,
+          "relationship": "Official destination",
+          "status": "Michael’s official profile"
+        },
+        {
+          "name": "Michael on TikTok",
+          "href": "https://www.tiktok.com/@duenoadueno",
+          "image": "https://lacreme.app/assets/empire/texas-merch-social-preview.jpg",
+          "category": "Follow Michael",
+          "description": "Follow @duenoadueno for videos and local updates.",
+          "cta": "Follow on TikTok",
+          "alt": "Michael on TikTok — Follow @duenoadueno for videos and local updates.",
+          "group": "social",
+          "affiliate": false,
+          "relationship": "Official destination",
+          "status": "Michael’s official profile"
+        },
+        {
+          "name": "Michael on YouTube",
+          "href": "https://www.youtube.com/channel/UCxUbhRQJ8rVFbXs1lwOE-dg",
+          "image": "https://lacreme.app/assets/empire/ribbon-clipfabulous.jpg",
+          "category": "Follow Michael",
+          "description": "Follow the connected channel for new videos.",
+          "cta": "Subscribe on YouTube",
+          "alt": "Michael on YouTube — Follow the connected channel for new videos.",
+          "group": "social",
+          "affiliate": false,
+          "relationship": "Official destination",
+          "status": "Michael’s official profile"
+        }
+      ],
+      "disclosure": ""
+    }
+  ],
+  "held": [
+    {
+      "name": "WebAppsMasterClass.AI",
+      "reason": "Existing artwork promotes a dated webinar; direct program destination is unverified."
+    }
+  ]
+}
