@@ -27,7 +27,7 @@ export default async (req: Request) => {
       const r = await fetch("https://places.googleapis.com/v1/places:searchText", {
         method: "POST",
         headers: { "Content-Type": "application/json", "X-Goog-Api-Key": key, "X-Goog-FieldMask": "places.location,places.googleMapsUri" },
-        body: JSON.stringify({ textQuery: `${name}, ${address}`, maxResultCount: 1, locationBias: { circle: { center: { latitude: 29.7604, longitude: -95.3698 }, radius: 120000 } } })
+        body: JSON.stringify({ textQuery: `${name}, ${address}`, maxResultCount: 1 })
       });
       if (r.ok) {
         const d = await r.json(); const p = d.places?.[0];

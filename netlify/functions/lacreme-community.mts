@@ -56,13 +56,7 @@ export default async (req: Request) => {
         },
         body: JSON.stringify({
           textQuery: `${name}, ${address}`,
-          maxResultCount: 1,
-          locationBias: {
-            circle: {
-              center: { latitude: 29.7604, longitude: -95.3698 },
-              radius: 120000
-            }
-          }
+          maxResultCount: 1
         })
       });
 
@@ -78,6 +72,16 @@ export default async (req: Request) => {
     }
   }
 
+  const mediaUrl = typeof body?.mediaUrl === "string" && /^\/api\/lacreme-media\/[a-f0-9-]{36}$/.test(body.mediaUrl) ? body.mediaUrl : null;
+  const mediaType = ["image/jpeg", "image/png", "video/mp4", "video/webm"].includes(body?.mediaType) ? body.mediaType : null;
+  let socialUrl = null;
+  if (body?.socialUrl) {
+    try {
+      const u = new URL(body.socialUrl);
+      if (u.protocol !== "https:" || !["youtube.com","www.youtube.com","m.youtube.com","youtu.be","instagram.com","www.instagram.com","tiktok.com","www.tiktok.com","vm.tiktok.com","vimeo.com","www.vimeo.com"].includes(u.hostname)) throw new Error();
+      socialUrl = u.href.slice(0, 2000);
+    } catch { return Response.json({error: "Use an HTTPS YouTube, Instagram, TikTok or Vimeo URL."}, {status: 400}); }
+  }
   const createdAt = new Date().toISOString();
   const item = {
     id: `community-${Date.now()}-${crypto.randomUUID()}`,
@@ -91,6 +95,9 @@ export default async (req: Request) => {
     latitude,
     longitude,
     googleMapsUri,
+    mediaUrl,
+    mediaType,
+    socialUrl,
     createdAt,
     source: "La Creme community"
   };

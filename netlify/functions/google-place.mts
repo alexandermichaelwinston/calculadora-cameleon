@@ -11,7 +11,7 @@ export default async (req: Request) => {
       "X-Goog-Api-Key": key,
       "X-Goog-FieldMask": "places.id,places.displayName,places.formattedAddress,places.location,places.rating,places.userRatingCount,places.photos,places.googleMapsUri,places.googleMapsLinks,places.reviews,places.websiteUri,places.priceLevel"
     },
-    body: JSON.stringify({ textQuery: query, maxResultCount: 1, locationBias: { circle: { center: { latitude: 29.7604, longitude: -95.3698 }, radius: 100000 } } })
+    body: JSON.stringify({ textQuery: query, maxResultCount: 1 })
   });
   if (!search.ok) return Response.json({ error: "Google Places request failed", status: search.status }, { status: 502 });
   const data = await search.json();
