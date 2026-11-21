@@ -32,3 +32,10 @@ get('mapRegion').onchange({target:{value:'alaska'}});assert.equal(get('destinati
 assert.match(get('pinList').children[0].innerHTML,/&lt;img onerror/);assert.match(get('pinList').children[0].innerHTML,/🔥🔥🔥🔥🔥/);assert.ok(get('pinList').children[0].children.some(x=>x.tagName==='VIDEO'&&x.controls&&x.playsInline));
 assert.equal(vm.runInContext("safeSocialUrl('https://youtube.com.evil.example/watch')",context),null);
 console.log('PASS: video upload/readback/range playback; upload limits/origin/type validation; saved video and social links; nationwide search; Hawaii/Alaska maps; escaped cards and five-fire display.');
+
+get('mapRegion').onchange({target:{value:'sanmiguel'}});assert.equal(get('destination').value,'San Miguel de Allende, Guanajuato, Mexico');assert.match(get('discoveryMap').src,/-100.83/);
+vm.runInContext("openDiscovery('restaurantes')",context);assert.equal(new URL(opened.at(-1)[0]).searchParams.get('query'),'restaurantes San Miguel de Allende, Guanajuato, Mexico');
+get('mapRegion').onchange({target:{value:'mexico'}});assert.equal(get('destination').value,'Mexico');
+const mexicoCheckin={name:'San Miguel de Allende',address:'San Miguel de Allende, Guanajuato, México',kind:'experience',category:'Destination',chiles:5};
+const mexicoResponse=await community(new Request('https://lacreme.app/api/lacreme-community',{method:'POST',body:JSON.stringify(mexicoCheckin)}));assert.equal(mexicoResponse.status,201);assert.equal((await mexicoResponse.json()).item.address,mexicoCheckin.address);
+console.log('PASS: Mexico and San Miguel map selection, Mexican destination search, and saved Mexican address with accented characters.');
